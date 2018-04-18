@@ -23,7 +23,7 @@ public class TaskB {
 		letters.add("c");
 		letters.add("p");
 
-		//Before letters bag is checking for vowels
+		//Before letters bag is being checked for vowels
 		System.out.println("Vowel bag: " +vowels.getCurrentSize());
 		System.out.println("Letters bag: "+letters.getCurrentSize());
 		
@@ -37,7 +37,7 @@ public class TaskB {
 			}
 		}
 		
-		//After letters bag is checking for vowels
+		//After letters bag is being checked for vowels
 		System.out.println("\nVowel bag: "+vowels.getCurrentSize());
 		System.out.println("Letters bag: "+letters.getCurrentSize());
 		
