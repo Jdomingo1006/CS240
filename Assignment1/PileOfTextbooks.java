@@ -19,10 +19,10 @@ public class PileOfTextbooks implements PilingInterface{
 
 	//Sets the initial capacity
 	public PileOfTextbooks(int initialCapacity){
-      checkCapacity(initialCapacity);
-      books = new String[initialCapacity];
-      numberOfBooks = 0;
-      initialized = true;
+		checkCapacity(initialCapacity);
+		books = new String[initialCapacity];
+		numberOfBooks = 0;
+		initialized = true;
 	} 
 	
 	//Checks if array is full
