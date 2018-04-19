@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /*James Domingo
  * CS240
  * Assignment
