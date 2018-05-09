@@ -1,3 +1,9 @@
+/*
+ * James Domingo
+ * CS240
+ * Assignment 2
+ * May 9th 2018
+ */
 import java.util.Arrays;
 import java.util.EmptyStackException;
 /**
