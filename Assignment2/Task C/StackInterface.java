@@ -12,27 +12,24 @@
 */
 public interface StackInterface<T>
 {
-   /** Adds a new entry to the top of this stack.
-       @param newEntry  An object to be added to the stack. */
+	//Adds new entry
    public void push(T newEntry);
 
-   /** Removes and returns this stack's top entry.
-       @return  The object at the top of the stack.
-       @throws  EmptyStackException if the stack is empty before the operation. */
+   //Removes the top item
    public T pop();
 
-   /** Retrieves this stack's top entry.
-       @return  The object at the top of the stack.
-       @throws  EmptyStackException if the stack is empty. */
+   //Peeks 1st item
    public T peek();
    
+   //Peeks 2nd item
    public T peek2();
-   /** Detects whether this stack is empty.
-       @return  True if the stack is empty. */
+
+   //Checks if stack is empty
    public boolean isEmpty();
    
+   //Returns number of items in stack
    public int getCurrentSize();
 
-   /** Removes all entries from this stack. */
+   //Clears the stack
    public void clear();
 } // end StackInterface
