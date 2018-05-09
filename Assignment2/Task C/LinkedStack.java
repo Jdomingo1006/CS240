@@ -19,13 +19,15 @@ public final class LinkedStack<T> implements StackInterface<T>
 	public LinkedStack()
 	{
 		firstNode = null;
-      numberOfEntries = 0;
+		numberOfEntries = 0;
 	} 
 
 	//Push method - adds entry
 	public void push(T newEntry) 
 	{
-		firstNode = new Node(newEntry, firstNode);
+		Node newNode = new Node(newEntry);
+		newNode.next = firstNode;
+		firstNode = newNode;
 		numberOfEntries++;
 	}
 	

@@ -24,13 +24,20 @@ public class TaskCDemo {
 	System.out.println("Peeking 2nd top item: "+stack.peek2());
 	
 	//Shows the removal of top book
-	System.out.println("\nRemoving top book.\n");
+	System.out.println("\nRemoving top book.");
 	stack.pop();
 	
-	//Shows items after removing top item
-	System.out.println("Total items in stack: "+stack.getCurrentSize());
-	System.out.println("Peeking top item: "+stack.peek());
-	System.out.println("Peeking 2nd top item: "+stack.peek2());
-
+	System.out.println("Is the stack empty?");
+	
+	//Shows isEmpty method.
+	if(!stack.isEmpty()) {
+		//Shows items after removing top item
+		System.out.println("\nThe stack is not empty.");
+		System.out.println("Total items in stack: "+stack.getCurrentSize());
+		System.out.println("Peeking top item: "+stack.peek());
+		System.out.println("Peeking 2nd top item: "+stack.peek2());
+	}else {
+		System.out.println("Stack is empty.");
+		}
 	}
 }
