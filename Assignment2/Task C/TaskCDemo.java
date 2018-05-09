@@ -17,15 +17,17 @@ public class TaskCDemo {
 	stack.push("Boop");
 	
 	//Prints out top 2 items
+	System.out.println("Top 2 items");
 	System.out.println("Peeking top item: "+stack.peek());
 	System.out.println("Peeking 2nd top item: "+stack.peek2());
+		
 	
 	//Removes "Boop" from the stack
 	System.out.println("\nRemoving top item.");
 	stack.pop();
 	
 	//Stack still contains Hello, Goodbye, and Raikou
-	System.out.println("\nPeeking top item: "+stack.peek());
+	System.out.println("Peeking top item: "+stack.peek());
 	System.out.println("Peeking 2nd top item: "+stack.peek2());
 	
 	//Removes "Raikou" from the stack.
@@ -33,7 +35,7 @@ public class TaskCDemo {
 	stack.pop();
 	
 	//Prints out "Goodbye" and "Hello"
-	System.out.println("\nPeeking top item: "+stack.peek());
+	System.out.println("Peeking top item: "+stack.peek());
 	System.out.println("Peeking 2nd top item: "+stack.peek2());
 	}
 }

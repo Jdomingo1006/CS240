@@ -4,7 +4,6 @@
  * Assignment 2
  * May 9th 2018
  */
-import java.util.Arrays;
 import java.util.EmptyStackException;
 /**
     A class of stacks whose entries are stored in an array.
@@ -14,111 +13,86 @@ import java.util.EmptyStackException;
 */
 public final class LinkedStack<T> implements StackInterface<T>
 {
-	private T[] stack;   
-	private int topIndex;
-   private boolean initialized = false;
-	private static final int DEFAULT_CAPACITY = 50;
-	private static final int MAX_CAPACITY = 10000;
+	private Node firstNode;    
+	private int numberOfEntries;
 
 	public LinkedStack()
 	{
-      this(DEFAULT_CAPACITY);
- 	} // end default constructor
-
-	public LinkedStack(int initialCapacity)
-	{
-      checkCapacity(initialCapacity);
-
-      @SuppressWarnings("unchecked")
-      T[] tempStack = (T[])new Object[initialCapacity];
-      stack = tempStack;
-		topIndex = -1;
-      initialized = true;
+		firstNode = null;
+      numberOfEntries = 0;
 	} 
 
-	public void push(T newEntry)
+	//Push method - adds entry
+	public void push(T newEntry) 
 	{
-		checkInitialization();
-		ensureCapacity();
-		stack[topIndex + 1] = newEntry;
-		topIndex++;
+		firstNode = new Node(newEntry, firstNode);
+		numberOfEntries++;
 	}
-
-	public T peek()
+	
+	//Peek method - returns top item
+	public T peek() 
 	{
-		checkInitialization();
-		if (isEmpty())
+		if(isEmpty())
 			throw new EmptyStackException();
 		else
-         return stack[topIndex];
+			return firstNode.data;
 	}
-
-	//Implemented peek2 method.
-	public T peek2() {
-		//Similar to peek method.
-		checkInitialization();
-		//throws exception if peek2 method can't be applied
-		if(isEmpty() || topIndex <= 1)
-			throw new EmptyStackException();
-		else
-		//returns 2nd top item from the stack
-		return stack[topIndex - 1];
-		
-	}
-	public T pop()
+	//Peek2 method - returns 2nd item
+	public T peek2()
 	{
-		checkInitialization();
-		if (isEmpty())
-			throw new EmptyStackException();
-		else
+		if(isEmpty()) 
 		{
-			T top = stack[topIndex];
-			stack[topIndex] = null;
-			topIndex--;
-         return top;
-		} 
-   } 
-
-   public boolean isEmpty()
+			return null;
+		}else {
+		T item = null;
+		if(firstNode.next == null) 
+		{
+			return null;
+		}else{
+		item = firstNode.next.data;
+		return item;
+			}
+		}
+	}
+	//Pop method - Removes top item
+	public T pop() 
 	{
-		return topIndex < 0;
+		T item = peek();
+		assert(firstNode != null);
+		firstNode = firstNode.next;
+		return item;
+	}
+	//isEmpty method - returns True/False if stack is empty
+	public boolean isEmpty()
+	{
+		return numberOfEntries == 0;
 	} 
-
+	//getCurrentSize method - returns entry amount
+	public int getCurrentSize()
+	{
+		return numberOfEntries;
+	} 
+	//clear method - clears entire stack
 	public void clear()
 	{
-		checkInitialization();
-		while (topIndex > -1)
-      {
-			stack[topIndex] = null;
-         topIndex--;
-      }
-	} 
+		firstNode = null;
+	}
 
-   // Throws an exception if this object is not initialized.
-   private void checkInitialization()
-   {
-      if (!initialized)
-         throw new SecurityException ("ArrayStack object is not initialized properly.");
-   } 
+	
+private class Node{
+	  private T    data;
+	  private Node next;
+	  
+		private Node(T dataPortion)
+		{
+			this(dataPortion, null);
+		} 
 
-   // Throws an exception if the client requests a capacity that is too large.
-   private void checkCapacity(int capacity)
-   {
-      if (capacity > MAX_CAPACITY)
-         throw new IllegalStateException("Attempt to create a stack " +
-                                         "whose capacity exceeds " +
-                                         "allowed maximum.");
-   } 
-
-   // Doubles the size of the array stack if it is full
-   // Precondition: checkInitialization has been called.
-	private void ensureCapacity()
-	{
- 	   if (topIndex >= stack.length - 1) 
-      {
-         int newLength = 2 * stack.length;
-         checkCapacity(newLength);
-         stack = Arrays.copyOf(stack, newLength);
-      } 
+		private Node(T dataPortion, Node nextNode)
+		{
+			data = dataPortion;
+			next = nextNode;
+		}
 	} 
 } 
+
