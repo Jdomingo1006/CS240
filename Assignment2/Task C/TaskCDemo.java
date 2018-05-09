@@ -14,28 +14,23 @@ public class TaskCDemo {
 	stack.push("Hello");
 	stack.push("Goodbye");
 	stack.push("Raikou");
-	stack.push("Boop");
+	stack.push("Darkrai");
 	
-	//Prints out top 2 items
-	System.out.println("Top 2 items");
+	//Shows total of items in stack
+	System.out.println("Total items in stack: "+stack.getCurrentSize());
+	
+	//Shows top 2 items in stack
 	System.out.println("Peeking top item: "+stack.peek());
 	System.out.println("Peeking 2nd top item: "+stack.peek2());
-		
 	
-	//Removes "Boop" from the stack
-	System.out.println("\nRemoving top item.");
+	//Shows the removal of top book
+	System.out.println("\nRemoving top book.\n");
 	stack.pop();
 	
-	//Stack still contains Hello, Goodbye, and Raikou
+	//Shows items after removing top item
+	System.out.println("Total items in stack: "+stack.getCurrentSize());
 	System.out.println("Peeking top item: "+stack.peek());
 	System.out.println("Peeking 2nd top item: "+stack.peek2());
-	
-	//Removes "Raikou" from the stack.
-	System.out.println("\nRemoving top item.");
-	stack.pop();
-	
-	//Prints out "Goodbye" and "Hello"
-	System.out.println("Peeking top item: "+stack.peek());
-	System.out.println("Peeking 2nd top item: "+stack.peek2());
+
 	}
 }

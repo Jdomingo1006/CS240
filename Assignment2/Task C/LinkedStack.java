@@ -60,6 +60,7 @@ public final class LinkedStack<T> implements StackInterface<T>
 		T item = peek();
 		assert(firstNode != null);
 		firstNode = firstNode.next;
+		numberOfEntries--;
 		return item;
 	}
 	//isEmpty method - returns True/False if stack is empty

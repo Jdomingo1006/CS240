@@ -30,6 +30,8 @@ public interface StackInterface<T>
    /** Detects whether this stack is empty.
        @return  True if the stack is empty. */
    public boolean isEmpty();
+   
+   public int getCurrentSize();
 
    /** Removes all entries from this stack. */
    public void clear();
