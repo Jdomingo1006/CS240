@@ -12,7 +12,7 @@
 */
 public interface StackInterface<T>
 {
-	//Adds new entry
+   //Adds new entry
    public void push(T newEntry);
 
    //Removes the top item
