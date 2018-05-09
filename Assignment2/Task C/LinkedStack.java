@@ -42,20 +42,15 @@ public final class LinkedStack<T> implements StackInterface<T>
 	//Peek2 method - returns 2nd item
 	public T peek2()
 	{
-		if(isEmpty()) 
+		if(isEmpty() || numberOfEntries < 2) 
 		{
-			return null;
+			throw new EmptyStackException();
 		}else {
 		T item = null;
-		if(firstNode.next == null) 
-		{
-			return null;
-		}else{
 		item = firstNode.next.data;
 		return item;
 			}
 		}
-	}
 	//Pop method - Removes top item
 	public T pop() 
 	{

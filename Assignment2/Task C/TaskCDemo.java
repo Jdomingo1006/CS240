@@ -24,7 +24,7 @@ public class TaskCDemo {
 	System.out.println("Peeking 2nd top item: "+stack.peek2());
 	
 	//Shows the removal of top book
-	System.out.println("\nRemoving top book.");
+	System.out.println("\nRemoving top item.");
 	stack.pop();
 	
 	System.out.println("Is the stack empty?");
