@@ -10,7 +10,7 @@ public class TaskCDemo {
 		
 	StackInterface<String> stack = new LinkedStack<String>();
 	
-	//stack with 3 items
+	//stack with 4 items
 	stack.push("Hello");
 	stack.push("Goodbye");
 	stack.push("Raikou");
@@ -20,19 +20,19 @@ public class TaskCDemo {
 	System.out.println("Peeking top item: "+stack.peek());
 	System.out.println("Peeking 2nd top item: "+stack.peek2());
 	
-	//Removes "Raikou" from the stack
+	//Removes "Boop" from the stack
 	System.out.println("\nRemoving top item.");
 	stack.pop();
 	
-	//Stack still contains Hello, Goodbye
+	//Stack still contains Hello, Goodbye, and Raikou
 	System.out.println("\nPeeking top item: "+stack.peek());
 	System.out.println("Peeking 2nd top item: "+stack.peek2());
 	
-	//Removes "Goodbye" from the stack.
+	//Removes "Raikou" from the stack.
 	System.out.println("\nRemoving top item.");
 	stack.pop();
 	
-	//Prints out "Hello" and throws an exception
+	//Prints out "Goodbye" and "Hello"
 	System.out.println("\nPeeking top item: "+stack.peek());
 	System.out.println("Peeking 2nd top item: "+stack.peek2());
 	}
