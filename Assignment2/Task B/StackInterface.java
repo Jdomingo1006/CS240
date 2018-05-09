@@ -1,3 +1,9 @@
+/*
+ * James Domingo
+ * CS240
+ * Assignment 2
+ * May 9th 2018
+ */
 /**
    An interface for the ADT stack.
    @author Frank M. Carrano
