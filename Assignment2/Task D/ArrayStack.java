@@ -16,7 +16,7 @@ public final class ArrayStack<T> implements StackInterface<T>
 {
 	private T[] stack;    // Array of stack entries
 	private int topIndex; // Index of top entry
-   private boolean initialized = false;
+    private boolean initialized = false;
 	private static final int DEFAULT_CAPACITY = 50;
 	private static final int MAX_CAPACITY = 10000;
 	
