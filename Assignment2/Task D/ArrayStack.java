@@ -20,16 +20,13 @@ public final class ArrayStack<T> implements StackInterface<T>
 	private static final int DEFAULT_CAPACITY = 50;
 	private static final int MAX_CAPACITY = 10000;
 	
-	//Added to fix ArrayStack issue.
-	public int getCurrentSize() {
-		return topIndex;
-	}
-
+	//ArrayStack constructor - creates a default size stack
 	public ArrayStack()
 	{
       this(DEFAULT_CAPACITY);
- 	} // end default constructor
+ 	} 
 
+	//ArrayStack constructor - creates new stack with user input size
 	public ArrayStack(int initialCapacity)
 	{
       checkCapacity(initialCapacity);
@@ -40,16 +37,17 @@ public final class ArrayStack<T> implements StackInterface<T>
       stack = tempStack;
 		topIndex = -1;
       initialized = true;
-	} // end constructor
+	}
 
+	//push method - adds item to stack
 	public void push(T newEntry)
 	{
 		checkInitialization();
 		ensureCapacity();
 		stack[topIndex + 1] = newEntry;
 		topIndex++;
-	} // end push
-
+	}
+	//peek method - checks top item of stack
 	public T peek()
 	{
 		checkInitialization();
@@ -57,12 +55,16 @@ public final class ArrayStack<T> implements StackInterface<T>
 			throw new EmptyStackException();
 		else
          return stack[topIndex];
-	} // end peek
-	
+	} 
+	//peek2 method - checks 2nd item of stack
 	public T peek2() {
-		return stack[topIndex];
+		checkInitialization();
+		if(isEmpty() || topIndex < 2)
+			throw new EmptyStackException();
+		else
+			return stack[topIndex - 1];
 	}
-
+	//pop method - removes top item of the stack
 	public T pop()
 	{
 		checkInitialization();
@@ -74,55 +76,55 @@ public final class ArrayStack<T> implements StackInterface<T>
 			stack[topIndex] = null;
 			topIndex--;
          return top;
-		} // end if
-   } // end pop
-
+		} 
+   } 
+	//isEmpty method - checks if array is empty
    public boolean isEmpty()
 	{
 		return topIndex < 0;
-	} // end isEmpty
+	} 
 
+   //getCurrentSize method - returns number of items in stack
+   public int getCurrentSize() {
+		return topIndex;
+	}
+   //clear method - clears all item in array stack
 	public void clear()
 	{
 		checkInitialization();
-
-      // Remove references to the objects in the stack,
-      // but do not deallocate the array
 		while (topIndex > -1)
       {
 			stack[topIndex] = null;
          topIndex--;
-      } // end while
-      //	Assertion: topIndex is -1
-	} // end clear
-
-   // Throws an exception if this object is not initialized.
+      }
+	} 
+	
+	//checkInitialization method - checks if array stack has been initialized
    private void checkInitialization()
    {
       if (!initialized)
          throw new SecurityException ("ArrayStack object is not initialized properly.");
-   } // end checkInitialization
+   } 
 
-   // Throws an exception if the client requests a capacity that is too large.
+   //checkCapacity method - checks user input array size is under max cap
    private void checkCapacity(int capacity)
    {
       if (capacity > MAX_CAPACITY)
          throw new IllegalStateException("Attempt to create a stack " +
                                          "whose capacity exceeds " +
                                          "allowed maximum.");
-   } // end checkCapacity
-
-   // Doubles the size of the array stack if it is full
-   // Precondition: checkInitialization has been called.
+   }
+   
+   //ensureCapacity - doubles array size
 	private void ensureCapacity()
 	{
- 	   if (topIndex >= stack.length - 1) // If array is full, double its size
+ 	   if (topIndex >= stack.length - 1)
       {
          int newLength = 2 * stack.length;
          checkCapacity(newLength);
          stack = Arrays.copyOf(stack, newLength);
-      } // end if
-	} // end ensureCapacity
+      } 
+	}
 	
 	//Display method - displays all items of the array stack
 	public void display() {
@@ -138,4 +140,4 @@ public final class ArrayStack<T> implements StackInterface<T>
 		}
 
 	}
-} // end ArrayStack*/
+} 
