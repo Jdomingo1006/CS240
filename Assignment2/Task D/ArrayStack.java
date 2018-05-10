@@ -54,7 +54,7 @@ public final class ArrayStack<T> implements StackInterface<T>
 		if (isEmpty())
 			throw new EmptyStackException();
 		else
-         return stack[topIndex];
+			return stack[topIndex];
 	} 
 	//peek2 method - checks 2nd item of stack
 	public T peek2() {
@@ -75,7 +75,7 @@ public final class ArrayStack<T> implements StackInterface<T>
 			T top = stack[topIndex];
 			stack[topIndex] = null;
 			topIndex--;
-         return top;
+			return top;
 		} 
    } 
 	//isEmpty method - checks if array is empty
@@ -92,13 +92,11 @@ public final class ArrayStack<T> implements StackInterface<T>
 	public void clear()
 	{
 		checkInitialization();
-		while (topIndex > -1)
-      {
+		while (topIndex > -1) {
 			stack[topIndex] = null;
-         topIndex--;
-      }
-	} 
-	
+			topIndex--;
+		}
+	}
 	//checkInitialization method - checks if array stack has been initialized
    private void checkInitialization()
    {
@@ -118,23 +116,22 @@ public final class ArrayStack<T> implements StackInterface<T>
    //ensureCapacity - doubles array size
 	private void ensureCapacity()
 	{
- 	   if (topIndex >= stack.length - 1)
-      {
-         int newLength = 2 * stack.length;
-         checkCapacity(newLength);
-         stack = Arrays.copyOf(stack, newLength);
-      } 
+ 	   if (topIndex >= stack.length - 1) {
+ 	         int newLength = 2 * stack.length;
+ 	         checkCapacity(newLength);
+ 	         stack = Arrays.copyOf(stack, newLength);
+ 	   }
 	}
 	
 	//Display method - displays all items of the array stack
 	public void display() {
 		int temp = topIndex;
 		if(!isEmpty()) {
-			while(temp > -1) {
-				String item =""+ stack[temp];
-				System.out.println(item);
-				temp--;
-			}
+		while(temp > -1) {
+			String item =""+ stack[temp];
+			System.out.println(item);
+			temp--;
+		}
 		}else {
 			System.out.print("No items. The stack is empty.");
 		}
